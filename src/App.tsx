@@ -1,10 +1,22 @@
 import "./App.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <>
-      <div>Hello world</div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </Router>
   );
 }
 
