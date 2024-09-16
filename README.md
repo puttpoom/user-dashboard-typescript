@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# User Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Introduction** This is my frist time React+TypeScript+MUI fronted project. During development, I have learnt about to handle the props with types and typesciprt syntax and solved the problems by searching suggestion from VScode.
 
-Currently, two official plugins are available:
+**User Dashboard** is a web application designed to manage user logins and display a dashboard with user entries. This project includes a login page, a dashboard page, and features to search, filter, and view detailed information about entries.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Table of Contents
 
-## Expanding the ESLint configuration
+- [User Dashboard](#user-dashboard)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+    - [1. Login Page](#1-login-page)
+    - [2. Dashboard (Home) Page](#2-dashboard-home-page)
+  - [Technologies Used](#technologies-used)
+  - [Installation](#installation)
+  - [Usage](#usage)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+### 1. Login Page
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Login Functionality**: Users can log in using a Email and Password with mock data for authentication.
+- **Error Handling**: Displays error messages when login fails.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2. Dashboard (Home) Page
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **Access Control**: Ensures only logged-in users can access the dashboard.
+- **Welcome Message**: Displays a simple welcome message to the logged-in user.
+- **List Entries**: Shows a list of entries using mock data.
+- **Search and Filter**: Allows users to search and filter through the entries.
+- **Detailed Information**: Provides detailed information for each entry.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Technologies Used
+
+- **React**: For building the user interface.
+- **React Hook**: ContextAPI for State management;
+- **React-Router-DOM**: For handling routing ("/", "/login", "/user/:userId")
+- **TypeScript**: For type safety and development efficiency.
+- **Material-UI**: For UI components and styling (Login Form, UserCard).
+- **Mock Data**: Used Promise for simulating backend data.
+- **Local Storage**: Store user data for LOGIN/LOGOUT features
+
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/your-username/user-dashboard.git
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+## Usage
+
+0. **Open in Development Mode**
+
+   ```bash
+   npm run dev
+   ```
+
+1. **Access the Login Page**
+
+- Navigate to /login to access the login page.
+- Enter your username and password to log in.
+- Handle login errors if credentials are incorrect.
+- Access the Dashboard Page:
+
+2. **Access the Dashboard Page**
+
+- After logging in, you will be redirected to the dashboard page.
+- Use the search bar and filters to find specific entries.
+- Click on an entry to view its detailed information.
