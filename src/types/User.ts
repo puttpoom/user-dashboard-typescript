@@ -1,9 +1,10 @@
 export type UserCredential = {
-  username: string;
+  email: string;
   password: string;
 };
 
-export type UserData = UserCredential & {
+export type UserData = {
+  password: string;
   createdAt: string;
   name: string;
   avatar: string;
@@ -12,4 +13,9 @@ export type UserData = UserCredential & {
   gender: string;
   email: string;
   id: string;
+};
+
+export type TFormInput = {
+  email: string;
+  password: string;
 };

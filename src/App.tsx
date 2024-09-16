@@ -1,22 +1,22 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import Router from "./routes";
 
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
+import { AuthProvider } from "./context/AuthContext";
+
+import { CssBaseline } from "@mui/material";
+import "react-toastify/dist/ReactToastify.css";
+
+import ProtectedPage from "./pages/ProtectedPage";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
-    </Router>
+    <CssBaseline>
+      <AuthProvider>
+        <Router />
+      </AuthProvider>
+    </CssBaseline>
   );
 }
 

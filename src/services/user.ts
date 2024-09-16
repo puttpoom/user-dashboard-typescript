@@ -1,27 +1,52 @@
-import axios from "axios";
+import { any } from "joi";
 import { UserCredential } from "../types/User";
-const API_BASEURL = import.meta.env.VITE_API_BASEURL;
+import mockUser from "../utils/mockData";
 
-export const login = async ({ username, password }: UserCredential) => {
-  try {
-    const res = await axios.get(`${API_BASEURL}/users`);
-    const users = res.data;
-    const authUser = users.filter(
-      (u: any) => u.username === username && u.password === password
-    );
-    console.log(authUser);
-    return authUser[0];
-  } catch (error) {
-    console.log(error);
-  }
+export const loginService = ({ email, password }: UserCredential) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const userData = mockUser.filter(
+        (user) => user.email === email && user.password === password
+      );
+      if (userData.length === 1) {
+        resolve({
+          status: 200,
+          data: userData[0],
+          message: "Login Sucessfully",
+        });
+      } else {
+        reject({ status: 400, data: null, message: "Login Failed" });
+      }
+    }, 1000);
+  });
 };
 
-export const fetchUser = async () => {
-  try {
-    const res = await axios.get(`${API_BASEURL}/users`);
-    const users = res.data;
-    return users;
-  } catch (error) {
-    console.log(error);
-  }
+export const getAllUser = (): any => {
+  const userData = mockUser;
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(userData);
+    }, 1000);
+  });
+};
+
+export const getUserById = (userId: number) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const filteredUserId = mockUser.filter((user) => user.id === +userId);
+      if (filteredUserId.length === 1) {
+        resolve({
+          status: 200,
+          data: filteredUserId[0],
+          message: "Founded User",
+        });
+      } else {
+        reject({
+          status: 404,
+          data: null,
+          message: `Not Found User ${userId}`,
+        });
+      }
+    }, 1000);
+  });
 };
