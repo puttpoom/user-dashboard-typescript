@@ -9,26 +9,34 @@
 - [User Dashboard](#user-dashboard)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
-    - [1. Login Page](#1-login-page)
-    - [2. Dashboard (Home) Page](#2-dashboard-home-page)
+    - [1. Login Page ("/login")](#1-login-page-login)
+    - [2. Dashboard (Home) Page ("/")](#2-dashboard-home-page-)
+    - [3. User Page ("/user/:userId")](#3-user-page-useruserid)
   - [Technologies Used](#technologies-used)
   - [Installation](#installation)
   - [Usage](#usage)
 
 ## Features
 
-### 1. Login Page
+### 1. Login Page ("/login")
 
 - **Login Functionality**: Users can log in using a Email and Password with mock data for authentication.
 - **Error Handling**: Displays error messages when login fails.
 
-### 2. Dashboard (Home) Page
+### 2. Dashboard (Home) Page ("/")
 
 - **Access Control**: Ensures only logged-in users can access the dashboard.
 - **Welcome Message**: Displays a simple welcome message to the logged-in user.
 - **List Entries**: Shows a list of entries using mock data.
 - **Search and Filter**: Allows users to search and filter through the entries.
 - **Detailed Information**: Provides detailed information for each entry.
+- **User Card Redirection**: Clicking on a user card redirects you to a user-specific page showing more details about the selected user.
+
+### 3. User Page ("/user/:userId")
+
+- **Handle Click**: When you click on a user card in the Home Page, you will be redirected to the user page.
+- **Dynamic Router**: Entry to a specific user page displaying detailed user information based on the `userId` parameter.
+-
 
 ## Technologies Used
 
