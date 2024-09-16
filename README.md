@@ -72,7 +72,8 @@
 1. **Access the Login Page**
 
 - Navigate to /login to access the login page.
-- Enter your username and password to log in.
+- Enter your email and password to log in.
+- `Email: admin@email.com Password: 1234`
 - Handle login errors if credentials are incorrect.
 - Access the Dashboard Page:
 
